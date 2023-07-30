@@ -1,0 +1,57 @@
+.landingpage-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 10rem;
+  flex-wrap: wrap;
+}
+
+.non-media-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 90vh;
+  flex-wrap: wrap;
+}
+
+.tag-lines-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.primary-btn {
+  padding: 1rem 10rem;
+  font-size: var(--font-m);
+  text-transform: capitalize;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--btn-primary);
+  color: white;
+}
+
+.landingpage-header-container {
+  font-size: var(--font-l);
+  text-transform: capitalize;
+  color: var(--text-primary);
+}
+
+.tag-lines-container h2 span {
+  font-size: var(--font-l);
+  text-transform: uppercase;
+  word-spacing: 0.2rem;
+  color: var(--text-secondary);
+}
+
+.tag-lines-container h2 {
+  font-size: var(--font-s);
+  text-transform: uppercase;
+}
+
+.access-container p {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: var(--font-m);
+  cursor: pointer;
+}

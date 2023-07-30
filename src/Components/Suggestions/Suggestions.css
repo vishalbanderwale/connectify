@@ -1,0 +1,20 @@
+/* .suggestions-main-container {
+  border-bottom: 1px solid black;
+} */
+
+.suggestions-profile-img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+}
+.suggestions-main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.suggestions-account-details {
+  display: flex;
+  gap: 0.5rem;
+}

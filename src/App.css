@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+:root {
+  --text-primary: #6b705c;
+  --text-secondary: #cb997e;
+  --font-xl: 3rem;
+  --font-l: 2rem;
+  --font-m: 1rem;
+  --font-s: 0.5rem;
+  --font-xs: 0.2rem;
+  --color-primary: #6b705c;
+  --color-secondary: #cb997e;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.button-primary {
+  background-color: var(--color-secondary);
+}
+
+/* anchor tag is present  in link link is a react componenet */

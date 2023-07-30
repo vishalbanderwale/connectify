@@ -1,0 +1,11 @@
+/* .right-side-bar-container {
+  padding: 0rem 1rem;
+} */
+
+.right-side-bar-icon-container {
+  padding: 0rem 1rem;
+}
+
+.right-side-bar-icon-container p {
+  text-transform: capitalize;
+}

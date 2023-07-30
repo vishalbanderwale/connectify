@@ -1,0 +1,141 @@
+.signup-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 500px;
+  height: 500px;
+  border-radius: 5px;
+  padding: 2rem;
+  box-shadow: 0px 2px 4px red;
+}
+
+.signup-main-container h2 {
+  margin-bottom: 2rem;
+  font-size: var(--font-xl);
+  text-transform: capitalize;
+  color: var(--text-primary);
+}
+
+.signup-header-container {
+  font-size: var(--font-l);
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.signup-full-name-container {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+
+  gap: 0.5rem;
+}
+
+.signup-full-name-container label {
+  font-size: var(--font-m);
+  text-transform: capitalize;
+}
+.signup-full-name-container input {
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid black;
+}
+.signup-user-name-container {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+
+  gap: 0.5rem;
+}
+
+.signup-user-name-container label {
+  font-size: var(--font-m);
+  text-transform: capitalize;
+}
+.signup-user-name-container input {
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.signup-email-address-container {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+
+  gap: 0.5rem;
+}
+.signup-email-address-container label {
+  font-size: var(--font-m);
+  text-transform: capitalize;
+}
+.signup-email-address-container input {
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.signup-password-container {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+
+  gap: 0.5rem;
+}
+
+.signup-password-container label {
+  font-size: var(--font-m);
+  text-transform: capitalize;
+}
+
+.signup-password-container input {
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid black;
+}
+.signup-confirm-password-container {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+
+  gap: 0.5rem;
+}
+
+.signup-confirm-password-container label {
+  font-size: var(--font-m);
+  text-transform: capitalize;
+}
+
+.signup-confirm-password-container input {
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid black;
+}
+.signup-btn-primary {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid black;
+  background-color: var(--btn-primary);
+  border-radius: 5px;
+  font-size: var(--font-m);
+  margin-top: 1rem;
+}
+
+.login-account-container {
+  text-align: center;
+}
+
+.login-account-container span {
+  margin-right: 0.2rem;
+}
+
+.login-account-link {
+  text-decoration: none;
+}
