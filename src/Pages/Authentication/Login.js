@@ -1,10 +1,20 @@
+
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { authContext } from "../../context/AuthContext";
+
 function LoginPage() {
+
+
+  const{handleLoginInput,handleLoginSubmit,loginData}=useContext(authContext)
+
+
+
   return (
     <div className="login-main-container">
       <h2>connectify</h2>
-      <form>
+      <form  onSubmit={handleLoginSubmit}>
         <div className="login-container">
           <div className="login-header-container">
             <h3>login</h3>
@@ -12,13 +22,13 @@ function LoginPage() {
 
           <div className="login-user-name-container">
             <label>username</label>
-            <input name="username" type="password" />
+            <input name="username" type="text"  value={loginData.username} onChange={handleLoginInput}/>
           </div>
 
           <div className="login-password-container">
             <label>password</label>
 
-            <input name="password" />
+            <input name="password" type="password"  value={loginData.password} onChange={handleLoginInput}/>
           </div>
 
           <div className="login-btn-container">
@@ -30,7 +40,6 @@ function LoginPage() {
           <div className="new-account-container">
             <span> create new account ?</span>
             <Link className="create-account-link" to="/signup">
-              {" "}
               Sign up here
             </Link>
           </div>

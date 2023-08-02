@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-export const PostContext = createContext();
+export const postContext = createContext();
 
 function PostProvider({ children }) {
   const [post, setPost] = useState([]);
@@ -14,8 +14,10 @@ function PostProvider({ children }) {
   useEffect(() => {
     getPost();
   }, []);
+
+  
   return (
-    <PostContext.Provider value={{ post }}>{children}</PostContext.Provider>
+    <postContext.Provider value={{ post }}>{children}</postContext.Provider>
   );
 }
 

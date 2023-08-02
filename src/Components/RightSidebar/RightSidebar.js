@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Suggestions } from "../Suggestions/Suggestions";
 import { faFire, faSort } from "@fortawesome/free-solid-svg-icons";
 import "./RightSidebar.css";
-import { Fragment, useContext } from "react";
+import {  useContext } from "react";
 import { userContext } from "../../context/UserContext";
 function RightSidebar() {
   const { users } = useContext(userContext);
@@ -21,10 +21,10 @@ function RightSidebar() {
       </div>
 
       {users.map((userData) => (
-        <>
+        <div key={userData._id}>
           <Suggestions data={userData} />
           <hr />
-        </>
+        </div>
       ))}
     </div>
     // (for returning  more than one component we must use Fragment)

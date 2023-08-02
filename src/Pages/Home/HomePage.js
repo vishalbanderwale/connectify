@@ -4,8 +4,6 @@ import { Navbar } from "../../Components/Navbar/Navbar";
 import { RightSidebar } from "../../Components/RightSidebar/RightSidebar";
 import { Footer } from "../../Components/Footer/Footer";
 import { MainSection } from "../../Components/MainSection/MainSection";
-import { useEffect } from "react";
-import axios from "axios";
 
 function HomePage() {
   return (

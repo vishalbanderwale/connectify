@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import "./FeedPost.css";
 
 function FeedPost({ data }) {
-  const { username, content } = data;
+  // const { username, content } = data; we can destruct also
   return (
     <div className="feed-post-main-container">
       <div className="feed-post-header">
@@ -25,7 +25,7 @@ function FeedPost({ data }) {
           <div className="feed-post-heading">
             <Link>
               <p>John Doe</p>
-              <p>{data.username}</p>
+              <p>{data?.username}</p>
             </Link>
           </div>
         </div>
@@ -35,7 +35,7 @@ function FeedPost({ data }) {
         </div>
       </div>
       <div className="feed-post-section">
-        <p>{data.content}</p>
+        <p>{data?.content}</p>
       </div>
       <div className="feed-post-footer">
         <FontAwesomeIcon icon={faHeart} />
