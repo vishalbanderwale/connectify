@@ -8,9 +8,17 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "./FeedPost.css";
+import { userContext } from "../../context/UserContext";
+import { useContext } from "react";
 
 function FeedPost({ data }) {
   // const { username, content } = data; we can destruct also
+
+  const { users } = useContext(userContext);
+
+  const fullNameDataFilter = users.filter((f) => f.username === data.username);
+  console.log(fullNameDataFilter[0]);
+
   return (
     <div className="feed-post-main-container">
       <div className="feed-post-header">
@@ -24,8 +32,11 @@ function FeedPost({ data }) {
           </div>
           <div className="feed-post-heading">
             <Link>
-              <p>John Doe</p>
-              <p>{data?.username}</p>
+              <p>
+                {fullNameDataFilter[0].firstName}
+                {fullNameDataFilter[0].lastName}
+              </p>
+              <p>@{data?.username}</p>
             </Link>
           </div>
         </div>
