@@ -10,14 +10,20 @@ import { Link } from "react-router-dom";
 import "./FeedPost.css";
 import { userContext } from "../../context/UserContext";
 import { useContext } from "react";
+import { postContext } from "../../context/PostContext";
 
 function FeedPost({ data }) {
   // const { username, content } = data; we can destruct also
 
   const { users } = useContext(userContext);
+  const { likePost } = useContext(postContext);
 
   const fullNameDataFilter = users.filter((f) => f.username === data.username);
   console.log(fullNameDataFilter[0]);
+
+  // function handleLike() {
+  //   likePost(data._id);
+  // }
 
   return (
     <div className="feed-post-main-container">
@@ -49,7 +55,9 @@ function FeedPost({ data }) {
         <p>{data?.content}</p>
       </div>
       <div className="feed-post-footer">
-        <FontAwesomeIcon icon={faHeart} />
+        <FontAwesomeIcon icon={faHeart} onClick={() => likePost(data._id)} />
+        <p>{data?.likes?.likeCount}</p>
+
         <FontAwesomeIcon icon={faComment} />
         <FontAwesomeIcon icon={faBookmark} />
         <FontAwesomeIcon icon={faShare} />

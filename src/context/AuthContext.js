@@ -29,7 +29,7 @@ function AuthProvider({ children }) {
 
       const data = await response.json();
       console.log(data);
-      localStorage.setItem("token", data.encodedToken);
+      localStorage.setItem("Token", data.encodedToken);
       if (response.status === 200) {
         Navigate("/");
       } else {
