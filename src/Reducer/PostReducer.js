@@ -6,7 +6,18 @@ function reducerFunction(state, { type, payload }) {
 
     case "LIKE_POST":
       return { ...state, Posts: payload };
+
+    case "DISLIKE_POST":
+      return { ...state, Posts: payload };
+
+    case "ADD_BOOKMARK":
+      return { ...state, Bookmarks: payload };
+
+    case "REMOVE_BOOKMARK":
+      return { ...state, Bookmarks: payload };
   }
 }
+
+//calling data and updating it
 
 export { reducerFunction };

@@ -11,19 +11,29 @@ import "./FeedPost.css";
 import { userContext } from "../../context/UserContext";
 import { useContext } from "react";
 import { postContext } from "../../context/PostContext";
+import { authContext } from "../../context/AuthContext";
 
 function FeedPost({ data }) {
   // const { username, content } = data; we can destruct also
-
+  const { loginData } = useContext(authContext);
+  const { username } = loginData;
   const { users } = useContext(userContext);
-  const { likePost } = useContext(postContext);
+  const { likePost, addBookmarkPost, dislikePost } = useContext(postContext);
 
   const fullNameDataFilter = users.filter((f) => f.username === data.username);
-  console.log(fullNameDataFilter[0]);
+  // console.log(fullNameDataFilter[0]);
 
   // function handleLike() {
   //   likePost(data._id);
   // }
+
+  const likedByUser = () => {
+    return (
+      data.likes?.likedBy?.filter((f) => f.username === username).length === 0
+    );
+  };
+
+  console.log(likedByUser());
 
   return (
     <div className="feed-post-main-container">
@@ -55,11 +65,28 @@ function FeedPost({ data }) {
         <p>{data?.content}</p>
       </div>
       <div className="feed-post-footer">
-        <FontAwesomeIcon icon={faHeart} onClick={() => likePost(data._id)} />
+        {likedByUser() ? (
+          <FontAwesomeIcon
+            icon={faHeart}
+            color="blue"
+            onClick={() => likePost(data._id)}
+          />
+        ) : (
+          <FontAwesomeIcon
+            icon={faHeart}
+            color="red"
+            onClick={() => dislikePost(data._id)}
+          />
+        )}
+
         <p>{data?.likes?.likeCount}</p>
 
         <FontAwesomeIcon icon={faComment} />
-        <FontAwesomeIcon icon={faBookmark} />
+        <FontAwesomeIcon
+          icon={faBookmark}
+          onClick={() => addBookmarkPost(data._id)}
+        />
+
         <FontAwesomeIcon icon={faShare} />
       </div>
     </div>
