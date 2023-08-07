@@ -14,7 +14,7 @@
   padding: 1rem 0rem;
   border-left: 1px solid black;
   border-right: 1px solid black;
-  min-height: calc(100vh - 4rem - 5rem);
+  min-height: calc(100vh - 4rem - 8rem);
 }
 
 .right-side-bar-container {

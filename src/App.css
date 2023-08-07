@@ -9,8 +9,8 @@ body {
 }
 
 :root {
-  --text-primary: #6b705c;
-  --text-secondary: #cb997e;
+  /* --text-primary: #6b705c;
+  --text-secondary: #cb997e; */
   --font-xl: 3rem;
   --font-l: 2rem;
   --font-m: 1rem;

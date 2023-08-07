@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Suggestions } from "../Suggestions/Suggestions";
 import { faFire, faSort } from "@fortawesome/free-solid-svg-icons";
 import "./RightSidebar.css";
-import {  useContext } from "react";
+import { useContext } from "react";
 import { userContext } from "../../context/UserContext";
 function RightSidebar() {
   const { users } = useContext(userContext);

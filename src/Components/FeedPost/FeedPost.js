@@ -16,9 +16,17 @@ import { authContext } from "../../context/AuthContext";
 function FeedPost({ data }) {
   // const { username, content } = data; we can destruct also
   const { loginData } = useContext(authContext);
+
   const { username } = loginData;
+  console.log(loginData);
   const { users } = useContext(userContext);
-  const { likePost, addBookmarkPost, dislikePost } = useContext(postContext);
+  const {
+    likePost,
+    addBookmarkPost,
+    removeBookmarkPost,
+    dislikePost,
+    bookmarks,
+  } = useContext(postContext);
 
   const fullNameDataFilter = users.filter((f) => f.username === data.username);
   // console.log(fullNameDataFilter[0]);
@@ -30,10 +38,17 @@ function FeedPost({ data }) {
   const likedByUser = () => {
     return (
       data.likes?.likedBy?.filter((f) => f.username === username).length === 0
+      //data is from post   login username shd match ussername liked by
     );
   };
 
   console.log(likedByUser());
+
+  const bookmarkedByUser = () => {
+    return bookmarks.filter((f) => f._id === data._id).length === 0;
+  };
+
+  console.log(bookmarkedByUser());
 
   return (
     <div className="feed-post-main-container">
@@ -82,10 +97,19 @@ function FeedPost({ data }) {
         <p>{data?.likes?.likeCount}</p>
 
         <FontAwesomeIcon icon={faComment} />
-        <FontAwesomeIcon
-          icon={faBookmark}
-          onClick={() => addBookmarkPost(data._id)}
-        />
+        {bookmarkedByUser() ? (
+          <FontAwesomeIcon
+            icon={faBookmark}
+            color="blue"
+            onClick={() => addBookmarkPost(data._id)}
+          />
+        ) : (
+          <FontAwesomeIcon
+            icon={faBookmark}
+            color="red"
+            onClick={() => removeBookmarkPost(data._id)}
+          />
+        )}
 
         <FontAwesomeIcon icon={faShare} />
       </div>

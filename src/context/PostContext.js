@@ -7,7 +7,7 @@ function PostProvider({ children }) {
   // const [post, setPost] = useState([]);
   const initalState = { Posts: [], Bookmarks: [] };
 
-  const [state, Dispatch] = useReducer(reducerFunction, initalState);
+  const [Poststate, Dispatch] = useReducer(reducerFunction, initalState);
 
   const Token = localStorage.getItem("Token");
   console.log(Token);
@@ -105,11 +105,12 @@ function PostProvider({ children }) {
   return (
     <postContext.Provider
       value={{
-        post: state.Posts,
+        post: Poststate.Posts,
         likePost,
         dislikePost,
         addBookmarkPost,
         removeBookmarkPost,
+        bookmarks: Poststate.Bookmarks,
       }}
     >
       {children}

@@ -12,11 +12,10 @@ function Footer() {
     <footer>
       <div className="footer-main-container">
         <div className="footer-heading-container">
-          <p>Made by Vishal Singh</p>
+          <p>Made with by vishal singh</p>
         </div>
         <div className="footer-icon-container">
           <Link>
-            {" "}
             <FontAwesomeIcon icon={faGithub} />
           </Link>
           <Link>
@@ -25,6 +24,9 @@ function Footer() {
           <Link>
             <FontAwesomeIcon icon={faTwitter} />
           </Link>
+        </div>
+        <div className="footer-year-container">
+          <p>© 2023| Connectify</p>
         </div>
       </div>
     </footer>
