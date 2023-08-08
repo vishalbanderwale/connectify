@@ -10,7 +10,7 @@ function PostProvider({ children }) {
   const [Poststate, Dispatch] = useReducer(reducerFunction, initalState);
 
   const Token = localStorage.getItem("Token");
-  console.log(Token);
+  // console.log(Token);
 
   const getPost = async () => {
     const response = await fetch("/api/posts");
@@ -111,6 +111,7 @@ function PostProvider({ children }) {
         addBookmarkPost,
         removeBookmarkPost,
         bookmarks: Poststate.Bookmarks,
+        Token,
       }}
     >
       {children}

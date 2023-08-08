@@ -18,8 +18,9 @@ function FeedPost({ data }) {
   const { loginData } = useContext(authContext);
 
   const { username } = loginData;
-  console.log(loginData);
+  // console.log(loginData);
   const { users } = useContext(userContext);
+
   const {
     likePost,
     addBookmarkPost,
@@ -42,13 +43,13 @@ function FeedPost({ data }) {
     );
   };
 
-  console.log(likedByUser());
+  // console.log(likedByUser());
 
   const bookmarkedByUser = () => {
     return bookmarks.filter((f) => f._id === data._id).length === 0;
   };
 
-  console.log(bookmarkedByUser());
+  // console.log(bookmarkedByUser());
 
   return (
     <div className="feed-post-main-container">

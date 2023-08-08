@@ -11,6 +11,8 @@ function AuthProvider({ children }) {
 
   const [loginData, setloginData] = useState([{ username: "", password: "" }]);
 
+  const [mainUser, setmainUser] = useState({});
+
   const handleLoginInput = (e) => {
     const name = e.target.name;
     // console.log(name)
@@ -28,9 +30,10 @@ function AuthProvider({ children }) {
       });
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       localStorage.setItem("Token", data.encodedToken);
       if (response.status === 200) {
+        setmainUser(data.foundUser);
         Navigate("/");
       } else {
         console.log("something wrong");
@@ -45,7 +48,7 @@ function AuthProvider({ children }) {
     userLogin(loginData);
   };
 
-  const [user, setUser] = useState([
+  const [authUser, setauthUser] = useState([
     {
       fullName: "",
       email: "",
@@ -60,7 +63,7 @@ function AuthProvider({ children }) {
     // console.log(name)
     const value = event.target.value;
     // console.log(value)
-    setUser({ ...user, [name]: value });
+    setauthUser({ ...authUser, [name]: value });
     //name (variable) is key []
     // console.log(user)
   };
@@ -100,8 +103,10 @@ function AuthProvider({ children }) {
         handleLoginSubmit,
         handleSignUpInput,
         handleSignUpSubmit,
-        user,
+        authUser,
         loginData,
+        mainUser,
+        setmainUser,
       }}
     >
       {children}

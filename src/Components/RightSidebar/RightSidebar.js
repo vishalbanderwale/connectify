@@ -4,8 +4,19 @@ import { faFire, faSort } from "@fortawesome/free-solid-svg-icons";
 import "./RightSidebar.css";
 import { useContext } from "react";
 import { userContext } from "../../context/UserContext";
+import { authContext } from "../../context/AuthContext";
 function RightSidebar() {
   const { users } = useContext(userContext);
+  const { mainUser } = useContext(authContext);
+  // console.log(users);
+  console.log(mainUser);
+
+  const filterdFollowData = users.filter(
+    (fi) => !mainUser?.following?.find((f) => f._id === fi._id)
+  );
+
+  // console.log(filterdFollowData);
+
   return (
     <div className="right-side-bar-container">
       <div className="right-side-bar-icon-container">
@@ -20,7 +31,7 @@ function RightSidebar() {
         <p>suggestions for you</p>
       </div>
 
-      {users.map((userData) => (
+      {filterdFollowData.map((userData) => (
         <div key={userData._id}>
           <Suggestions data={userData} />
           <hr />
