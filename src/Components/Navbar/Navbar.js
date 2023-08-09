@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { PopSearch } from "../PopSearch/PopSearch";
 
 function Navbar() {
   const [mode, setMode] = useState("light");
@@ -31,7 +32,11 @@ function Navbar() {
             className="input-search"
           />
           <FontAwesomeIcon icon={faSearch} className="fa-Search" />
+          <div className="pop-up-search">
+            <PopSearch />
+          </div>
         </div>
+
         <div className="navbar-icons-container">
           <div
             onClick={() =>

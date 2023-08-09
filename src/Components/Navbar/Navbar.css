@@ -28,18 +28,31 @@
   font-size: var(--font-l);
   text-transform: capitalize;
 }
+
+.navbar-search-container {
+  position: relative;
+}
+
 .input-search {
   padding: 0.5rem 0.5rem 0.5rem 2rem;
-  width: 20rem;
+  width: 25rem;
   border-radius: 1rem;
   border: 1px solid black;
-  position: relative;
+}
+
+.pop-up-search {
+  position: absolute;
+  left: 5rem;
+  bottom: -2.5rem;
+  border: 1px solid black;
+  width: 15rem;
+  text-align: center;
 }
 
 .fa-Search {
   position: absolute;
-  right: 52rem;
-  top: 25px;
+  left: 0.5rem;
+  top: 10px;
 }
 
 .navbar-icons-container {
@@ -58,4 +71,22 @@
   width: 2rem;
   height: 2rem;
   border-radius: 1rem;
+}
+
+input[type="search"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
 }
