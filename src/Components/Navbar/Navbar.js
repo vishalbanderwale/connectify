@@ -1,12 +1,36 @@
 import "./Navbar.css";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faSun,
+  faMoon,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { PopSearch } from "../PopSearch/PopSearch";
+import { useContext } from "react";
+
+import { userContext } from "../../context/UserContext";
 
 function Navbar() {
+  const { users } = useContext(userContext);
   const [mode, setMode] = useState("light");
+  const [searchToggle, setsearchToggle] = useState(false);
+
+  const [searchProfile, setsearchProfile] = useState([]);
+
+  const searchHandler = (event) => {
+    if (event.target.value === "") {
+      setsearchProfile([]);
+    } else {
+      const filterProfile = users?.filter((f) =>
+        f.username.includes(event.target.value)
+      );
+      console.log(filterProfile);
+      setsearchProfile(filterProfile);
+    }
+  };
 
   return (
     <nav className="main-navbar">
@@ -30,11 +54,25 @@ function Navbar() {
             type="search"
             placeholder="search here"
             className="input-search"
+            onClick={() => setsearchToggle(true)}
+            onChange={(event) => searchHandler(event)}
           />
-          <FontAwesomeIcon icon={faSearch} className="fa-Search" />
-          <div className="pop-up-search">
-            <PopSearch />
-          </div>
+
+          {searchToggle ? (
+            <div onClick={() => setsearchToggle(false)}>
+              <FontAwesomeIcon icon={faXmark} className="fa-Search" />
+            </div>
+          ) : (
+            <div>
+              <FontAwesomeIcon icon={faSearch} className="fa-Search" />
+            </div>
+          )}
+
+          {searchToggle && (
+            <div className="pop-up-search">
+              <PopSearch search={searchProfile} />
+            </div>
+          )}
         </div>
 
         <div className="navbar-icons-container">

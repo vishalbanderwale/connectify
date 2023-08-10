@@ -1,9 +1,17 @@
 import "./PopSearch.css";
 
-function PopSearch() {
+function PopSearch({ search }) {
   return (
     <div>
-      <p>search user!</p>
+      {search.length === 0 ? (
+        <p>search user!</p>
+      ) : (
+        <div>
+          {search.map((m) => (
+            <p>{m?.username}</p>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
