@@ -25,7 +25,7 @@ function UserProvider({ children }) {
       },
     });
     const data = await response.json();
-    // console.log(data);
+    console.log(data);
     setmainUser(data.user);
     // if(response.status===200){
     // Dispat

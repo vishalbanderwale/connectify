@@ -29,7 +29,7 @@ function FeedPost({ data }) {
     bookmarks,
   } = useContext(postContext);
 
-  const fullNameDataFilter = users.filter((f) => f.username === data.username);
+  const fullNameDataFilter = users.filter((f) => f.username === data?.username);
   // console.log(fullNameDataFilter[0]);
 
   // function handleLike() {
@@ -38,7 +38,7 @@ function FeedPost({ data }) {
 
   const likedByUser = () => {
     return (
-      data.likes?.likedBy?.filter((f) => f.username === username).length === 0
+      data.likes?.likedBy?.filter((f) => f?.username === username).length === 0
       //data is from post   login username shd match ussername liked by
     );
   };

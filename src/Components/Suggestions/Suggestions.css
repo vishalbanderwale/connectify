@@ -2,6 +2,12 @@
   border-bottom: 1px solid black;
 } */
 
+.suggestions-media-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .suggestions-profile-img {
   width: 2rem;
   height: 2rem;

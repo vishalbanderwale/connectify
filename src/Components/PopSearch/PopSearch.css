@@ -1,0 +1,27 @@
+.pop-search-profile-img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+}
+
+.pop-up-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pop-up-profiles {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.pop-up-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .pop-up-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}  */
