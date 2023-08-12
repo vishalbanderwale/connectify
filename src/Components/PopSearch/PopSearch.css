@@ -13,15 +13,14 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 1px solid black;
 }
-.pop-up-img {
+/* .pop-up-img {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
-/* .pop-up-details {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}  */
+.pop-up-details {
+  width: 50%;
+}

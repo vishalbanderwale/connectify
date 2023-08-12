@@ -15,6 +15,9 @@ function reducerFunction(state, { type, payload }) {
 
     case "REMOVE_BOOKMARK":
       return { ...state, Bookmarks: payload };
+
+    case "SORTING":
+      return { ...state, sort: payload };
   }
 }
 

@@ -17,6 +17,10 @@ const LeftSideBarConfig = [
   { label: "Profile", icon: faUser, link: "/" },
 ];
 
+const styleHandler = ({ isActive }) => ({
+  backgroundColor: isActive ? "blue" : "transparent",
+});
+
 function LeftSidebar() {
   return (
     <aside>
@@ -26,6 +30,7 @@ function LeftSidebar() {
             to={s.link}
             key={s.label}
             className="left-side-bar-container"
+            style={styleHandler}
           >
             <div className="left-side-bar-icon-container">
               <FontAwesomeIcon icon={s.icon} />

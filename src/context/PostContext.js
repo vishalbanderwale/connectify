@@ -5,7 +5,7 @@ export const postContext = createContext();
 
 function PostProvider({ children }) {
   // const [post, setPost] = useState([]);
-  const initalState = { Posts: [], Bookmarks: [] };
+  const initalState = { Posts: [], Bookmarks: [], sort: "" };
 
   const [Poststate, Dispatch] = useReducer(reducerFunction, initalState);
 
@@ -106,12 +106,14 @@ function PostProvider({ children }) {
     <postContext.Provider
       value={{
         post: Poststate.Posts,
+        sort: Poststate.sort,
         likePost,
         dislikePost,
         addBookmarkPost,
         removeBookmarkPost,
         bookmarks: Poststate.Bookmarks,
         Token,
+        Dispatch,
       }}
     >
       {children}

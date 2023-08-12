@@ -5,11 +5,13 @@ import "./RightSidebar.css";
 import { useContext } from "react";
 import { userContext } from "../../context/UserContext";
 import { authContext } from "../../context/AuthContext";
+import { postContext } from "../../context/PostContext";
 function RightSidebar() {
   const { users } = useContext(userContext);
   const { mainUser } = useContext(authContext);
+  const { Dispatch } = useContext(postContext);
   // console.log(users);
-  console.log(mainUser);
+  // console.log(mainUser);
 
   const filterdFollowData = users.filter(
     (fi) => !mainUser?.following?.find((f) => f._id === fi._id)
@@ -20,11 +22,16 @@ function RightSidebar() {
   return (
     <div className="right-side-bar-container">
       <div className="right-side-bar-icon-container">
-        <button>
+        <button
+          onClick={() => Dispatch({ type: "SORTING", payload: "Trending" })}
+        >
           <FontAwesomeIcon icon={faFire} />
           Trending
         </button>
-        <button className="button-primary">
+        <button
+          className="button-primary"
+          onClick={() => Dispatch({ type: "SORTING", payload: "Latest" })}
+        >
           <FontAwesomeIcon icon={faSort} />
           Latest
         </button>

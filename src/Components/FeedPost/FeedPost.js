@@ -29,7 +29,9 @@ function FeedPost({ data }) {
     bookmarks,
   } = useContext(postContext);
 
-  const fullNameDataFilter = users.filter((f) => f.username === data?.username);
+  const fullNameDataFilter = users?.filter(
+    (f) => f?.username === data?.username
+  );
   // console.log(fullNameDataFilter[0]);
 
   // function handleLike() {
@@ -38,15 +40,20 @@ function FeedPost({ data }) {
 
   const likedByUser = () => {
     return (
-      data.likes?.likedBy?.filter((f) => f?.username === username).length === 0
+      data?.likes?.likedBy?.filter((f) => f?.username === username).length === 0
       //data is from post   login username shd match ussername liked by
     );
   };
 
-  // console.log(likedByUser());
+  // const month = new Date(data.createdAt)
+  //   .toDateString()
+  //   .split(" ")
+  //   .slice(1, 4)
+  //   .join(" ");
+  // console.log(month);
 
   const bookmarkedByUser = () => {
-    return bookmarks.filter((f) => f._id === data._id).length === 0;
+    return bookmarks?.filter((f) => f._id === data._id).length === 0;
   };
 
   // console.log(bookmarkedByUser());
@@ -65,11 +72,18 @@ function FeedPost({ data }) {
           <div className="feed-post-heading">
             <Link>
               <p>
-                {fullNameDataFilter[0].firstName}
-                {fullNameDataFilter[0].lastName}
+                {fullNameDataFilter[0]?.firstName}
+                {fullNameDataFilter[0]?.lastName}
               </p>
               <p>@{data?.username}</p>
             </Link>
+          </div>
+          <div>
+            <p>{`${new Date(data?.createdAt)
+              .toDateString()
+              .split(" ")
+              .slice(1, 4)
+              .join(" ")}`}</p>
           </div>
         </div>
 
