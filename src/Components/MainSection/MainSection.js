@@ -29,12 +29,16 @@ function MainSection() {
   return (
     <>
       <AddPost />
-      {filteredMain?.map((postData) => (
-        <div key={postData._id}>
-          <FeedPost data={postData} />
-          {/* (//passing prop here)   */}
-        </div>
-      ))}
+      {filteredMain?.length === 0 ? (
+        <h1> has there is no post!create a post</h1>
+      ) : (
+        filteredMain?.map((postData) => (
+          <div key={postData._id}>
+            <FeedPost data={postData} />
+            {/* (//passing prop here)   */}
+          </div>
+        ))
+      )}
     </>
   );
 }

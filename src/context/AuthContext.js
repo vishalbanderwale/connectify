@@ -91,7 +91,7 @@ function AuthProvider({ children }) {
 
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
-    signUpUser();
+    signUpUser(authUser);
   };
 
   return (

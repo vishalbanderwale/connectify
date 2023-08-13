@@ -5,6 +5,10 @@
   height: 100vh;
 } */
 
+.left-side-bar-main-container {
+  z-index: 1;
+}
+
 .left-side-bar-icon-container {
   display: flex;
   align-items: center;
@@ -15,4 +19,24 @@
 .left-side-bar-container {
   color: inherit;
   text-decoration: none;
+}
+
+.empty-container {
+  background-color: rgba(0, 0, 0, 0.471);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+}
+
+.create-post-container {
+  position: absolute;
+  top: 0;
+  z-index: 99;
+}
+
+.create-post-main-container {
+  position: relative;
+  z-index: 0;
 }
