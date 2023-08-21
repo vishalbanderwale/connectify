@@ -13,9 +13,9 @@ function AddPost() {
   const contentHandler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setaddPost({ ...AddPost, [name]: value });
+    setaddPost({ ...addPost, [name]: value });
   };
-
+  console.log(addPost);
   const addPostHandler = async () => {
     const response = await fetch("/api/posts", {
       method: "POST",
@@ -27,8 +27,9 @@ function AddPost() {
       }),
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     Dispatch({ type: "SET_POST", payload: data.posts });
+    setaddPost({ content: "" });
   };
 
   return (

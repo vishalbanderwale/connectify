@@ -10,8 +10,8 @@ import { RightSidebar } from "../../Components/RightSidebar/RightSidebar";
 
 function ExplorePage() {
   const { post } = useContext(postContext);
-
   console.log(post);
+
   return (
     <div className="page-main-container">
       <div className="navbar-container">
@@ -23,7 +23,7 @@ function ExplorePage() {
       </div>
 
       <div className="main-container">
-        {post.map((m) => (
+        {post?.map((m) => (
           <>
             <FeedPost data={m} />
           </>

@@ -2,7 +2,7 @@ function reducerFunction(state, { type, payload }) {
   // action:{type,payload}
   switch (type) {
     case "SET_POST":
-      return { ...state, Posts: payload };
+      return { ...state, Posts: [...payload] };
 
     case "LIKE_POST":
       return { ...state, Posts: payload };
@@ -18,6 +18,12 @@ function reducerFunction(state, { type, payload }) {
 
     case "SORTING":
       return { ...state, sort: payload };
+
+    case "DELETE_POST":
+      return { ...state, Posts: payload };
+
+    // case "EDIT_POST":
+    //   return { ...state, Posts: payload };
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { createContext, useEffect } from "react";
 import { useReducer } from "react";
 import { reducerFunction } from "../Reducer/PostReducer";
+import { useState } from "react";
 export const postContext = createContext();
 
 function PostProvider({ children }) {
@@ -8,6 +9,9 @@ function PostProvider({ children }) {
   const initalState = { Posts: [], Bookmarks: [], sort: "" };
 
   const [Poststate, Dispatch] = useReducer(reducerFunction, initalState);
+  const [optionToggle, setoptionToggle] = useState(null);
+  const [editToggle, setEditToggle] = useState(false);
+  const [editPostData, seteditPostData] = useState({});
 
   const Token = localStorage.getItem("Token");
   // console.log(Token);
@@ -36,6 +40,7 @@ function PostProvider({ children }) {
       //private route  we need authorization token
 
       const data = await response.json();
+      console.log(response);
       // setPost(data.posts);
 
       if (response.status === 201) {
@@ -106,6 +111,7 @@ function PostProvider({ children }) {
     <postContext.Provider
       value={{
         post: Poststate.Posts,
+
         sort: Poststate.sort,
         likePost,
         dislikePost,
@@ -114,6 +120,12 @@ function PostProvider({ children }) {
         bookmarks: Poststate.Bookmarks,
         Token,
         Dispatch,
+        optionToggle,
+        setoptionToggle,
+        editToggle,
+        setEditToggle,
+        editPostData,
+        seteditPostData,
       }}
     >
       {children}

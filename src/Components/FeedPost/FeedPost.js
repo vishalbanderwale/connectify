@@ -12,12 +12,17 @@ import { userContext } from "../../context/UserContext";
 import { useContext } from "react";
 import { postContext } from "../../context/PostContext";
 import { authContext } from "../../context/AuthContext";
+import { PopUpOption } from "../PopUpOption/PopUpOption";
+import { EditPopUp } from "../EditPopUp/EditPopUp";
 
 function FeedPost({ data }) {
+  console.log(data);
   // const { username, content } = data; we can destruct also
   const { loginData } = useContext(authContext);
-
+  const { optionToggle, setoptionToggle, editToggle } = useContext(postContext);
+  // const { mainUser } = useContext(authContext);
   const { username } = loginData;
+  console.log(username);
   // console.log(loginData);
   const { users } = useContext(userContext);
 
@@ -37,6 +42,9 @@ function FeedPost({ data }) {
   // function handleLike() {
   //   likePost(data._id);
   // }
+
+  // const findUser = users.filter((f) => f.username === username);
+  // console.log(findUser);
 
   const likedByUser = () => {
     return (
@@ -88,7 +96,33 @@ function FeedPost({ data }) {
         </div>
 
         <div className="feed-post-menu-container">
-          <FontAwesomeIcon icon={faEllipsis} />
+          {username === data.username ? (
+            <FontAwesomeIcon
+              icon={faEllipsis}
+              onClick={
+                () =>
+                  optionToggle
+                    ? setoptionToggle(null)
+                    : setoptionToggle(data._id)
+                //null is false value
+              }
+              //saving unquieid
+            />
+          ) : null}
+
+          {/* // checking card id and set id */}
+
+          {optionToggle === data._id && (
+            <div>
+              <PopUpOption data={data} />
+            </div>
+          )}
+
+          {editToggle && (
+            <div className="edit-pop-up">
+              <EditPopUp data={data} />
+            </div>
+          )}
         </div>
       </div>
       <div className="feed-post-section">

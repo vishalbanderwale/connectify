@@ -7,7 +7,11 @@ function LandingPage() {
   return (
     <div className="landingpage-main-container">
       <div className="media-container">
-        <img src="https://placehold.co/500x500/png" alt="landingPage-img" />
+        <img
+          src="https://w7.pngwing.com/pngs/93/334/png-transparent-connecting-people-illustration-social-media-marketing-blockchain-angle-white-poster.png"
+          alt="landingPage-img"
+          className="landing-page-img"
+        />
       </div>
       <div className="non-media-container">
         <div className="landingpage-header-container">

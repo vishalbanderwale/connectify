@@ -7,7 +7,7 @@ import {
   faMoon,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { PopSearch } from "../PopSearch/PopSearch";
 import { useContext } from "react";
 
@@ -17,8 +17,10 @@ function Navbar() {
   const { users } = useContext(userContext);
   const [mode, setMode] = useState("light");
   const [searchToggle, setsearchToggle] = useState(false);
+  const [searchValue, setSearchValue] = useState([]);
+  const [searchProfile, setsearchProfile] = useState("");
 
-  const [searchProfile, setsearchProfile] = useState([]);
+  const navigate = useNavigate();
 
   const searchHandler = (event) => {
     if (event.target.value === "") {
@@ -29,7 +31,13 @@ function Navbar() {
       );
       console.log(filterProfile);
       setsearchProfile(filterProfile);
+      setSearchValue(event.target.value);
     }
+  };
+  console.log(searchProfile);
+  const clearValueHandler = () => {
+    setsearchToggle(false);
+    setSearchValue("");
   };
 
   return (
@@ -54,12 +62,13 @@ function Navbar() {
             type="search"
             placeholder="search here"
             className="input-search"
+            value={searchValue}
             onClick={() => setsearchToggle(true)}
             onChange={(event) => searchHandler(event)}
           />
 
           {searchToggle ? (
-            <div onClick={() => setsearchToggle(false)}>
+            <div onClick={clearValueHandler}>
               <FontAwesomeIcon icon={faXmark} className="fa-Search" />
             </div>
           ) : (
@@ -98,6 +107,9 @@ function Navbar() {
               />
             </span>
           </Link>
+          <div>
+            <button onClick={() => navigate("/login")}>logout</button>
+          </div>
         </div>
       </div>
     </nav>

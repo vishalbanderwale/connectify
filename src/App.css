@@ -16,8 +16,9 @@ body {
   --font-m: 1rem;
   --font-s: 0.5rem;
   --font-xs: 0.2rem;
-  --color-primary: #6b705c;
-  --color-secondary: #cb997e;
+  --color-primary: #1d3557;
+  --color-secondary: #4cc9f0;
+  --color-neutral: #4cc9f0;
 }
 
 a {

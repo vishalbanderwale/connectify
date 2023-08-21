@@ -34,6 +34,7 @@ function MainSection() {
       ) : (
         filteredMain?.map((postData) => (
           <div key={postData._id}>
+            {console.log(postData)}
             <FeedPost data={postData} />
             {/* (//passing prop here)   */}
           </div>

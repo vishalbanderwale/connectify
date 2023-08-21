@@ -1,0 +1,47 @@
+.edit-pop-up-post-profile-img {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 2.5rem;
+}
+
+.edit-pop-up-main-container {
+  text-align: center;
+  box-shadow: 0px 0px 5px 0.2px red;
+  width: 60%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 25vh;
+  margin: 1rem auto;
+}
+
+.edit-pop-up-header {
+  display: flex;
+
+  gap: 0.5rem;
+}
+
+/* .add-post-header span {
+    padding: 1rem;
+  } */
+
+.edit-pop-up-post-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-pop-up-post-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-pop-up-header textarea {
+  width: 20rem;
+  height: 5rem;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  resize: none;
+}

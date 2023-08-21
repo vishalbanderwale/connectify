@@ -13,7 +13,7 @@ import { useState } from "react";
 import { AddPost } from "../AddPost/AddPost";
 
 const LeftSideBarConfig = [
-  { label: "Home", icon: faHome, link: "/" },
+  { label: "Home", icon: faHome, link: "/home" },
   { label: "Explore", icon: faCompass, link: "/explorepage" },
   { label: "Bookmarks", icon: faBookmark, link: "/bookmarkpage" },
   { label: "Profile", icon: faUser, link: "/myprofile" },
@@ -46,10 +46,23 @@ function LeftSidebar() {
             create post
           </button>
         </div>
-        {createPostToggle && (
+        {/* {createPostToggle && (
           <div className="create-post-main-container">
             <div className="empty-container"></div>
             <div className="create-post-container">
+              <AddPost />
+            </div>
+          </div>
+        )} */}
+        {createPostToggle && (
+          <div
+            onClick={() => setcreatePostToggle(false)}
+            className="userprofile_modal_outer_div"
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="userprofile_modal_outer_container"
+            >
               <AddPost />
             </div>
           </div>

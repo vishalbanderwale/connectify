@@ -11,10 +11,10 @@ import { BookmarkPage } from "../Pages/BookmarkPage/BookmarkPage";
 function Routing() {
   return (
     <Routes>
-      <Route path="/home" element={<LandingPage />} />
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/" element={<HomePage />} />
+      <Route path="/home" element={<HomePage />} />
       <Route path="/explorepage" element={<ExplorePage />} />
       <Route path="/bookmarkpage" element={<BookmarkPage />} />
       <Route path="/:thirdprofileid" element={<ThirdPersonProfilePage />} />

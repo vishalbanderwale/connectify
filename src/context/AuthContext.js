@@ -34,7 +34,7 @@ function AuthProvider({ children }) {
       localStorage.setItem("Token", data.encodedToken);
       if (response.status === 200) {
         setmainUser(data.foundUser);
-        Navigate("/");
+        Navigate("/home");
       } else {
         console.log("something wrong");
       }
