@@ -7,6 +7,7 @@ import { LandingPage } from "../Pages/LandingPage/LandingPage";
 import { Route, Routes } from "react-router-dom";
 import { ThirdPersonProfilePage } from "../Pages/ThirdPersonProfilePage/ThirdPersonProfile";
 import { BookmarkPage } from "../Pages/BookmarkPage/BookmarkPage";
+import { MyProfilePage } from "../Pages/MyProfilePage/MyProfilePage";
 
 function Routing() {
   return (
@@ -19,6 +20,7 @@ function Routing() {
       <Route path="/bookmarkpage" element={<BookmarkPage />} />
       <Route path="/:thirdprofileid" element={<ThirdPersonProfilePage />} />
       <Route path="/mockman" element={<MockApi />} />
+      <Route path="/myprofile" element={<MyProfilePage />} />
     </Routes>
   );
 }

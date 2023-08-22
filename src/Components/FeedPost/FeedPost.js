@@ -96,14 +96,14 @@ function FeedPost({ data }) {
         </div>
 
         <div className="feed-post-menu-container">
-          {username === data.username ? (
+          {username === data?.username ? (
             <FontAwesomeIcon
               icon={faEllipsis}
               onClick={
                 () =>
                   optionToggle
                     ? setoptionToggle(null)
-                    : setoptionToggle(data._id)
+                    : setoptionToggle(data?._id)
                 //null is false value
               }
               //saving unquieid
@@ -112,7 +112,7 @@ function FeedPost({ data }) {
 
           {/* // checking card id and set id */}
 
-          {optionToggle === data._id && (
+          {optionToggle === data?._id && (
             <div>
               <PopUpOption data={data} />
             </div>
@@ -133,13 +133,13 @@ function FeedPost({ data }) {
           <FontAwesomeIcon
             icon={faHeart}
             color="blue"
-            onClick={() => likePost(data._id)}
+            onClick={() => likePost(data?._id)}
           />
         ) : (
           <FontAwesomeIcon
             icon={faHeart}
             color="red"
-            onClick={() => dislikePost(data._id)}
+            onClick={() => dislikePost(data?._id)}
           />
         )}
 
@@ -156,7 +156,7 @@ function FeedPost({ data }) {
           <FontAwesomeIcon
             icon={faBookmark}
             color="red"
-            onClick={() => removeBookmarkPost(data._id)}
+            onClick={() => removeBookmarkPost(data?._id)}
           />
         )}
 
