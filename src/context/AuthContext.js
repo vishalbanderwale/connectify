@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useContext } from "react";
 import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { userContext } from "./UserContext";
 
 export const authContext = createContext();
 
@@ -8,10 +10,12 @@ function AuthProvider({ children }) {
   const [isLogged, setIsLogged] = useState(false);
 
   const Navigate = useNavigate();
+  // const { setUsers } = useContext(userContext);
 
   const [loginData, setloginData] = useState([{ username: "", password: "" }]);
 
   const [mainUser, setmainUser] = useState({});
+  console.log(mainUser);
 
   const handleLoginInput = (e) => {
     const name = e.target.name;
@@ -48,15 +52,17 @@ function AuthProvider({ children }) {
     userLogin(loginData);
   };
 
-  const [authUser, setauthUser] = useState([
-    {
-      fullName: "",
-      email: "",
-      username: "",
-      password: "",
-      confirmPassword: "",
-    },
-  ]);
+  const [authUser, setauthUser] = useState({
+    fullName: "",
+    email: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
+    avatarUrl: "https://randomuser.me/api/portraits/men/3.jpg",
+    bio: "my Bio",
+  });
+
+  console.log(authUser);
 
   const handleSignUpInput = (event) => {
     const name = event.target.name;
@@ -69,6 +75,7 @@ function AuthProvider({ children }) {
   };
 
   const signUpUser = async (user) => {
+    console.log(user);
     try {
       const response = await fetch("/api/auth/signup", {
         method: "POST",

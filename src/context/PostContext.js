@@ -2,6 +2,10 @@ import React, { createContext, useEffect } from "react";
 import { useReducer } from "react";
 import { reducerFunction } from "../Reducer/PostReducer";
 import { useState } from "react";
+import { trendingPost } from "../Reducer/PostReducerUtils";
+import { useContext } from "react";
+import { authContext } from "./AuthContext";
+
 export const postContext = createContext();
 
 function PostProvider({ children }) {
@@ -15,6 +19,20 @@ function PostProvider({ children }) {
 
   const Token = localStorage.getItem("Token");
   // console.log(Token);
+
+  // console.log(sortedData);
+
+  //post.filter 19th line before sorting
+
+  const sortedData = trendingPost(Poststate.Posts, Poststate.sort);
+  const { mainUser } = useContext(authContext);
+
+  const filteredMain = sortedData?.filter(
+    (fi) =>
+      mainUser?.following?.find((f) => f?.username === fi?.username) ||
+      fi?.username === mainUser?.username //checking its username matching with our username
+    // we are taking one post checking twice
+  );
 
   const getPost = async () => {
     const response = await fetch("/api/posts");
@@ -126,6 +144,7 @@ function PostProvider({ children }) {
         setEditToggle,
         editPostData,
         seteditPostData,
+        filteredMain,
       }}
     >
       {children}

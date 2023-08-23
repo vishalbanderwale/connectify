@@ -4,25 +4,12 @@ import { FeedPost } from "../FeedPost/FeedPost";
 import "./MainSection.css";
 import { postContext } from "../../context/PostContext";
 
-import { authContext } from "../../context/AuthContext";
-import { trendingPost } from "../../Reducer/PostReducerUtils";
-
 function MainSection() {
-  const { post, sort } = useContext(postContext);
-  // console.log(post);
-  const { mainUser } = useContext(authContext);
-  // console.log(mainUser.username);
-
-  const sortedData = trendingPost(post, sort);
-  // console.log(sortedData);
-
-  //post.filter 19th line before sorting
-  const filteredMain = sortedData?.filter(
-    (fi) =>
-      mainUser?.following?.find((f) => f?.username === fi?.username) ||
-      fi?.username === mainUser?.username //checking its username matching with our username
-    // we are taking one post checking twice
-  );
+  const { filteredMain } = useContext(postContext);
+  // const { post, sort } = useContext(postContext);
+  // // console.log(post);
+  // const { mainUser } = useContext(authContext);
+  // // console.log(mainUser.username);
 
   // console.log(post.filter((f) => f.username === mainUser.username));
   // console.log(filteredMain);

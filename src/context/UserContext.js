@@ -10,12 +10,23 @@ function UserProvider({ children }) {
   const [users, setUsers] = useState([]);
   const { setmainUser } = useContext(authContext);
 
+  // const sortedData = trendingPost(post, sort);
+
+  // console.log(users);
+
   const getUsers = async () => {
     const response = await fetch("api/users");
     const usersData = await response.json();
     // console.log(usersData);
     setUsers(usersData.users);
   };
+
+  // const filteredMain = sortedData?.filter(
+  //   (fi) =>
+  //     mainUser?.following?.find((f) => f?.username === fi?.username) ||
+  //     fi?.username === mainUser?.username //checking its username matching with our username
+  //   // we are taking one post checking twice
+  // );
 
   const followUsers = async (id) => {
     const response = await fetch(`api/users/follow/${id}`, {
@@ -38,7 +49,7 @@ function UserProvider({ children }) {
     getUsers();
   }, []);
   return (
-    <userContext.Provider value={{ users, followUsers }}>
+    <userContext.Provider value={{ users, getUsers, followUsers, setUsers }}>
       {children}
     </userContext.Provider>
   );

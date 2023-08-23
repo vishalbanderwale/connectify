@@ -1,20 +1,23 @@
-
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { authContext } from "../../context/AuthContext";
+import { userContext } from "../../context/UserContext";
+import { useEffect } from "react";
 
 function LoginPage() {
+  const { handleLoginInput, handleLoginSubmit, loginData } =
+    useContext(authContext);
+  const { getUsers } = useContext(userContext);
 
-
-  const{handleLoginInput,handleLoginSubmit,loginData}=useContext(authContext)
-
-
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   return (
     <div className="login-main-container">
       <h2>connectify</h2>
-      <form  onSubmit={handleLoginSubmit}>
+      <form onSubmit={handleLoginSubmit}>
         <div className="login-container">
           <div className="login-header-container">
             <h3>login</h3>
@@ -22,13 +25,23 @@ function LoginPage() {
 
           <div className="login-user-name-container">
             <label>username</label>
-            <input name="username" type="text"  value={loginData.username} onChange={handleLoginInput}/>
+            <input
+              name="username"
+              type="text"
+              value={loginData.username}
+              onChange={handleLoginInput}
+            />
           </div>
 
           <div className="login-password-container">
             <label>password</label>
 
-            <input name="password" type="password"  value={loginData.password} onChange={handleLoginInput}/>
+            <input
+              name="password"
+              type="password"
+              value={loginData.password}
+              onChange={handleLoginInput}
+            />
           </div>
 
           <div className="login-btn-container">

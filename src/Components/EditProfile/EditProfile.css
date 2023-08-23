@@ -1,0 +1,21 @@
+* .edit-profile-img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.edit-profile-main-container {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.edit-profile-name-details {
+  width: 50%;
+}
+
+.edit-profile-username-details {
+  width: 50%;
+}
+
+.edit-profile-bio-details {
+  width: 50%;
+}

@@ -29,7 +29,7 @@ function Navbar() {
       const filterProfile = users?.filter((f) =>
         f.username.includes(event.target.value)
       );
-      console.log(filterProfile);
+      // console.log(filterProfile);
       setsearchProfile(filterProfile);
       setSearchValue(event.target.value);
     }
