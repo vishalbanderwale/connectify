@@ -9,8 +9,8 @@ import { Suggestions } from "../../Components/Suggestions/Suggestions";
 import { postContext } from "../../context/PostContext";
 
 function MyProfilePage() {
-  const { filteredMain } = useContext(postContext);
-  console.log(filteredMain);
+  const { myPost } = useContext(postContext);
+  // console.log(filteredMain);
   return (
     <div className="page-main-container">
       <div className="navbar-container">
@@ -22,10 +22,10 @@ function MyProfilePage() {
 
       <div className="main-container">
         <MyProfile />
-        {filteredMain?.length === 0 ? (
+        {myPost?.length === 0 ? (
           <h1>no post</h1>
         ) : (
-          filteredMain?.map((postData) => (
+          myPost?.map((postData) => (
             <div key={postData?._id}>
               <FeedPost data={postData} />
             </div>

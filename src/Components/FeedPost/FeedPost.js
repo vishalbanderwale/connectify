@@ -17,9 +17,11 @@ import { EditPopUp } from "../EditPopUp/EditPopUp";
 
 function FeedPost({ data }) {
   console.log(data);
+  // data=feedpost data
   // const { username, content } = data; we can destruct also
   const { loginData } = useContext(authContext);
-  const { optionToggle, setoptionToggle, editToggle } = useContext(postContext);
+  const { optionToggle, setoptionToggle, editToggle, handleSinglePost } =
+    useContext(postContext);
   // const { mainUser } = useContext(authContext);
   const { username } = loginData;
   console.log(username);
@@ -126,7 +128,7 @@ function FeedPost({ data }) {
         </div>
       </div>
       <div className="feed-post-section">
-        <p>{data?.content}</p>
+        <p onClick={() => handleSinglePost(data?._id)}>{data?.content}</p>
       </div>
       <div className="feed-post-footer">
         {likedByUser() ? (

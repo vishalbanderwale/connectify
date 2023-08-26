@@ -5,6 +5,7 @@ import { useState } from "react";
 import { trendingPost } from "../Reducer/PostReducerUtils";
 import { useContext } from "react";
 import { authContext } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export const postContext = createContext();
 
@@ -16,6 +17,8 @@ function PostProvider({ children }) {
   const [optionToggle, setoptionToggle] = useState(null);
   const [editToggle, setEditToggle] = useState(false);
   const [editPostData, seteditPostData] = useState({});
+  const [singlePost, setSinglePost] = useState({});
+  const navigate = useNavigate();
 
   const Token = localStorage.getItem("Token");
   // console.log(Token);
@@ -32,6 +35,10 @@ function PostProvider({ children }) {
       mainUser?.following?.find((f) => f?.username === fi?.username) ||
       fi?.username === mainUser?.username //checking its username matching with our username
     // we are taking one post checking twice
+  );
+
+  const myPost = sortedData?.filter(
+    (fi) => fi?.username === mainUser?.username
   );
 
   const getPost = async () => {
@@ -121,6 +128,22 @@ function PostProvider({ children }) {
     }
   };
 
+  const getDetailedPost = async (id) => {
+    try {
+      const response = await fetch(`api/posts/${id}`);
+      const detailedPost = await response.json();
+      console.log(detailedPost);
+      setSinglePost(detailedPost?.post);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSinglePost = (id) => {
+    getDetailedPost(id);
+    navigate(`/home/${id}`);
+  };
+
   useEffect(() => {
     getPost();
   }, []);
@@ -145,6 +168,10 @@ function PostProvider({ children }) {
         editPostData,
         seteditPostData,
         filteredMain,
+        myPost,
+        getDetailedPost,
+        handleSinglePost,
+        singlePost,
       }}
     >
       {children}

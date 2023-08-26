@@ -10,7 +10,7 @@ function MyProfile() {
   const { users } = useContext(userContext);
   const [editProfile, setEditProfile] = useState(false);
 
-  console.log(users);
+  // console.log(users);
 
   function editProfileHandler() {
     setEditProfile(!editProfile);

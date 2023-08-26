@@ -12,10 +12,18 @@ function AuthProvider({ children }) {
   const Navigate = useNavigate();
   // const { setUsers } = useContext(userContext);
 
-  const [loginData, setloginData] = useState([{ username: "", password: "" }]);
+  const [loginData, setloginData] = useState({ username: "", password: "" });
 
   const [mainUser, setmainUser] = useState({});
   console.log(mainUser);
+
+  const handleGuest = () => {
+    const defaultData = {
+      username: "adarshbalika",
+      password: "1",
+    };
+    setloginData(defaultData);
+  };
 
   const handleLoginInput = (e) => {
     const name = e.target.name;
@@ -114,6 +122,7 @@ function AuthProvider({ children }) {
         loginData,
         mainUser,
         setmainUser,
+        handleGuest,
       }}
     >
       {children}

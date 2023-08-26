@@ -29,6 +29,7 @@
 
 .feed-post-section {
   text-align: start;
+  cursor: pointer;
 }
 
 .feed-post-footer {

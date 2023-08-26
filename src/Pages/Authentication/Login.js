@@ -6,7 +6,7 @@ import { userContext } from "../../context/UserContext";
 import { useEffect } from "react";
 
 function LoginPage() {
-  const { handleLoginInput, handleLoginSubmit, loginData } =
+  const { handleLoginInput, handleLoginSubmit, loginData, handleGuest } =
     useContext(authContext);
   const { getUsers } = useContext(userContext);
 
@@ -48,7 +48,9 @@ function LoginPage() {
             <button className="login-btn-primary">login</button>
           </div>
           <div className="login-guest-btn-container">
-            <button className="login-btn-secondary">login in as guest</button>
+            <button className="login-btn-secondary" onClick={handleGuest}>
+              login in as guest
+            </button>
           </div>
           <div className="new-account-container">
             <span> create new account ?</span>

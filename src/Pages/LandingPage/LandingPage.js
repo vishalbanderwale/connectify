@@ -23,16 +23,16 @@ function LandingPage() {
             <span>follow</span> Your Interests.
           </h2>
           <h2>
-            {" "}
-            <span>connect</span> for Meaningful Relationships.
+            \<span>connect</span> for Meaningful Relationships.
           </h2>
           <h2>
-            {" "}
             <span>share</span> Your Journey. Connect with Others.
           </h2>
         </div>
         <div className="access-container">
-          <button className="primary-btn">join now</button>
+          <button className="primary-btn" onClick={() => navigate("/signup")}>
+            join now
+          </button>
           <p onClick={() => navigate("/login")}>Already have an account?</p>
         </div>
       </div>

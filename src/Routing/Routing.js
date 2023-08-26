@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import { ThirdPersonProfilePage } from "../Pages/ThirdPersonProfilePage/ThirdPersonProfile";
 import { BookmarkPage } from "../Pages/BookmarkPage/BookmarkPage";
 import { MyProfilePage } from "../Pages/MyProfilePage/MyProfilePage";
+import { SinglePost } from "../Pages/SinglePostPage/SinglePostPage";
 
 function Routing() {
   return (
@@ -21,6 +22,7 @@ function Routing() {
       <Route path="/:thirdprofileid" element={<ThirdPersonProfilePage />} />
       <Route path="/mockman" element={<MockApi />} />
       <Route path="/myprofile" element={<MyProfilePage />} />
+      <Route path="/home/:singlePostId" element={<SinglePost />} />
     </Routes>
   );
 }
