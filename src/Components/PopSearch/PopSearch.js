@@ -16,7 +16,7 @@ function PopSearch({ search }) {
               <div
                 className="pop-up-profiles"
                 onClick={() => {
-                  navigate(`${m?.username}`);
+                  navigate(`/profile/${m?.username}`);
                 }}
               >
                 <div className="pop-up-img">

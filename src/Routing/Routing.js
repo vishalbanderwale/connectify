@@ -19,7 +19,7 @@ function Routing() {
       <Route path="/home" element={<HomePage />} />
       <Route path="/explorepage" element={<ExplorePage />} />
       <Route path="/bookmarkpage" element={<BookmarkPage />} />
-      <Route path="/:thirdprofileid" element={<ThirdPersonProfilePage />} />
+      <Route path="/profile/:username" element={<ThirdPersonProfilePage />} />
       <Route path="/mockman" element={<MockApi />} />
       <Route path="/myprofile" element={<MyProfilePage />} />
       <Route path="/home/:singlePostId" element={<SinglePost />} />

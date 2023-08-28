@@ -5,7 +5,7 @@ import { LeftSidebar } from "../../Components/LeftSidebar/LeftSidebar";
 import { MyProfile } from "../../Components/MyProfile/MyProfile";
 import { Navbar } from "../../Components/Navbar/Navbar";
 import { Suggestions } from "../../Components/Suggestions/Suggestions";
-
+import "./MyProfilePage.css";
 import { postContext } from "../../context/PostContext";
 
 function MyProfilePage() {
@@ -22,6 +22,7 @@ function MyProfilePage() {
 
       <div className="main-container">
         <MyProfile />
+
         {myPost?.length === 0 ? (
           <h1>no post</h1>
         ) : (

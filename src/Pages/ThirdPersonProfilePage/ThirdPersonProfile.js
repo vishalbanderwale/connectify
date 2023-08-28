@@ -14,15 +14,11 @@ function ThirdPersonProfilePage() {
   const { users } = useContext(userContext);
   const { post } = useContext(postContext);
 
-  const { thirdprofileid } = useParams();
+  const { username } = useParams();
 
-  // console.log(thirdprofileid)
+  const thirdPersonFilter = users.filter((f) => f.username === username);
 
-  const thirdPersonFilter = users.filter((f) => f.username === thirdprofileid);
-  console.log(thirdPersonFilter);
-
-  const feedPostFilter = post.filter((f) => f.username === thirdprofileid);
-  console.log(feedPostFilter);
+  const feedPostFilter = post.filter((f) => f.username === username);
 
   return (
     <div className="page-main-container">

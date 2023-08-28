@@ -4,32 +4,41 @@ import "./ThirdPersonProfile.css";
 function ThirdPersonProfile({ data }) {
   console.log(data.username);
   return (
-    <>
-      <section>
+    <div className="my-profile-main-container">
+      <div className="my-profile-details-container">
         <img
           src="https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp"
           alt="third-person-profile"
-          className="third-person-profile"
+          className="my-profile-img"
         />
-        <p>
+        <h3>
           {data?.firstName ?? "adrash"} {data?.lastName ?? "balika"}
-        </p>
+        </h3>
         <p>@{data?.username ?? "@adrash"}</p>
 
         <button className="button-primary">follow</button>
-      </section>
+      </div>
 
-      <section>
+      <div className="my-profile-info-container">
         <p>{data.bio}</p>
         <Link>{data.website}</Link>
-      </section>
-
-      <div>
-        <p>posts</p>
-        <p>followers</p>
-        <p>following</p>
       </div>
-    </>
+      <div className="my-profile-count-container">
+        <div>
+          <p>0</p>
+          <p>posts</p>
+        </div>
+
+        <div>
+          <p>0</p>
+          <p>followers</p>
+        </div>
+        <div>
+          <p>0</p>
+          <p>following</p>
+        </div>
+      </div>
+    </div>
   );
 }
 

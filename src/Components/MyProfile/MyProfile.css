@@ -1,4 +1,33 @@
 .my-profile-img {
-  width: 35px;
-  height: 30px;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 4rem;
+}
+
+.my-profile-main-container {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  box-shadow: 0 0 5px 0.2px red;
+  text-align: center;
+  padding: 1rem;
+  width: 50%;
+  height: 300px;
+
+  margin: 0rem auto;
+}
+
+.my-profile-details-container h3 {
+  text-transform: capitalize;
+}
+
+.my-profile-info-container {
+  margin-top: 0.5rem;
+}
+
+.my-profile-count-container {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }

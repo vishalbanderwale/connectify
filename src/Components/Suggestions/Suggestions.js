@@ -14,7 +14,7 @@ function Suggestions({ data }) {
       <div
         className="suggestions-account-details"
         onClick={() => {
-          Navigate(`/${data.username}`);
+          Navigate(`/profile/${data.username}`);
         }}
       >
         <div className="suggestions-media-container">
