@@ -7,8 +7,10 @@ import { Navbar } from "../../Components/Navbar/Navbar";
 import { Suggestions } from "../../Components/Suggestions/Suggestions";
 import "./MyProfilePage.css";
 import { postContext } from "../../context/PostContext";
+import { userContext } from "../../context/UserContext";
 
 function MyProfilePage() {
+  const { users } = useContext(userContext);
   const { myPost } = useContext(postContext);
   // console.log(filteredMain);
   return (
@@ -34,7 +36,11 @@ function MyProfilePage() {
         )}
       </div>
       <div className="right-side-bar-container">
-        <Suggestions />
+        {users?.map((postData) => (
+          <div key={postData?._id}>
+            <Suggestions data={postData} />
+          </div>
+        ))}
       </div>
 
       <div className="footer-container">

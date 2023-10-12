@@ -3,19 +3,106 @@
   height: 2rem;
 }
 
-.edit-profile-main-container {
-  border: 1px solid black;
-  text-align: center;
+/* we can do e.stopprogragtion or we can take one empty div */
+
+tr td {
+  padding: 0.5rem;
 }
 
+td input {
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+tr {
+  text-align: left;
+}
+.background-profile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+  /* background-color: rgba(58, 53, 53, 0.081); */
+}
+
+.edit-profile-main-container {
+  box-shadow: 0px 0px 5px 0px red;
+  background-color: blue;
+  width: 80%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.editprofile_modal_outer_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(58, 53, 53, 0.081);
+
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+.editprofile_modal_outer_container {
+  transition: 5s;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 24px;
+  border-radius: 12px;
+  overflow: auto;
+  max-width: 35rem;
+  width: 100%;
+  max-height: 80vh;
+}
+
+/* /* .edit-profile-main-container {
+  border: 1px solid black;
+  /* text-align: center; */
+/* background-color: blue;
+  z-index: 1000;
+
+
 .edit-profile-name-details {
-  width: 50%;
+  padding-left: 4rem;
+  display: flex;
 }
 
 .edit-profile-username-details {
-  width: 50%;
+  display: flex;
+  padding-left: 4rem;
 }
 
 .edit-profile-bio-details {
-  width: 50%;
+  display: flex;
+  padding-left: 4rem;
+}
+
+.edit-profile-details {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+/* background-color: brown;
+  padding-left: 4rem;
+} */
+
+/* .edit-profile-website-details {
+  display: flex; */
+/* padding-left: 4rem;
+}  */
+
+.update-btn {
+  z-index: 10000000;
 }

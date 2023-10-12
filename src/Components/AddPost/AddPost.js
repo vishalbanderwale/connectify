@@ -27,7 +27,7 @@ function AddPost() {
       }),
     });
     const data = await response.json();
-    // console.log(data);
+    console.log(data);
     Dispatch({ type: "SET_POST", payload: data.posts });
     setaddPost({ content: "" });
   };

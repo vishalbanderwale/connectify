@@ -9,6 +9,11 @@ function UserProvider({ children }) {
   // console.log(userToken);
   const [users, setUsers] = useState([]);
   const { setmainUser } = useContext(authContext);
+  const [editProfile, setEditProfile] = useState(false);
+
+  function editProfileHandler() {
+    setEditProfile(!editProfile);
+  }
 
   // const sortedData = trendingPost(post, sort);
 
@@ -28,7 +33,29 @@ function UserProvider({ children }) {
   //   // we are taking one post checking twice
   // );
 
+  const editUser = async (body) => {
+    // console.log(edit);
+    const response = await fetch("api/users/edit", {
+      method: "POST",
+      headers: {
+        authorization: userToken,
+      },
+      body: JSON.stringify({
+        userData: body,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    if (response.status === 201) {
+      setmainUser(data.user);
+      // editProfileHandler();
+    } else {
+      console.log("error");
+    }
+  };
+
   const followUsers = async (id) => {
+    console.log(id);
     const response = await fetch(`api/users/follow/${id}`, {
       method: "POST",
       headers: {
@@ -36,20 +63,39 @@ function UserProvider({ children }) {
       },
     });
     const data = await response.json();
-    // console.log(data);
+    console.log(data);
     setmainUser(data.user);
-    // if(response.status===200){
-    // Dispat
-    //     }else{
-    //       console.log("error")
-    //     }
+    setmainUser(data.followUser);
+  };
+
+  const unFollowUsers = async (id) => {
+    const response = await fetch(`api/users/follow/${id}`, {
+      method: "POST",
+      headers: {
+        authorization: userToken,
+      },
+    });
+    const data = await response.json();
+    console.log(data);
   };
 
   useEffect(() => {
     getUsers();
   }, []);
   return (
-    <userContext.Provider value={{ users, getUsers, followUsers, setUsers }}>
+    <userContext.Provider
+      value={{
+        users,
+        getUsers,
+        followUsers,
+        unFollowUsers,
+        setUsers,
+        editUser,
+        editProfile,
+        setEditProfile,
+        editProfileHandler,
+      }}
+    >
       {children}
     </userContext.Provider>
   );

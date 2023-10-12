@@ -41,7 +41,7 @@ function Suggestions({ data }) {
           className="button-primary "
           onClick={() => followUsers(data._id)}
         >
-          follow
+          follow +
         </button>
       </div>
     </div>

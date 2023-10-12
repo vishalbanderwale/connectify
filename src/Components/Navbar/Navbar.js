@@ -34,7 +34,7 @@ function Navbar() {
       setSearchValue(event.target.value);
     }
   };
-  console.log(searchProfile);
+  // console.log(searchProfile);
   const clearValueHandler = () => {
     setsearchToggle(false);
     setSearchValue("");

@@ -16,7 +16,7 @@ import { PopUpOption } from "../PopUpOption/PopUpOption";
 import { EditPopUp } from "../EditPopUp/EditPopUp";
 
 function FeedPost({ data }) {
-  console.log(data);
+  // console.log(data);
   // data=feedpost data
   // const { username, content } = data; we can destruct also
   const { loginData } = useContext(authContext);
@@ -24,7 +24,7 @@ function FeedPost({ data }) {
     useContext(postContext);
   // const { mainUser } = useContext(authContext);
   const { username } = loginData;
-  console.log(username);
+  // console.log(username);
   // console.log(loginData);
   const { users } = useContext(userContext);
 

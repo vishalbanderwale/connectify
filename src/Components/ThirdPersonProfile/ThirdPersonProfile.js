@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import "./ThirdPersonProfile.css";
+import { useState } from "react";
+import { useContext } from "react";
+import { userContext } from "../../context/UserContext";
 
 function ThirdPersonProfile({ data }) {
+  const [followToggle, setFollowToggle] = useState(false);
+
+  const { followUsers } = useContext(userContext);
   console.log(data.username);
   return (
     <div className="my-profile-main-container">
@@ -16,7 +22,15 @@ function ThirdPersonProfile({ data }) {
         </h3>
         <p>@{data?.username ?? "@adrash"}</p>
 
-        <button className="button-primary">follow</button>
+        <button
+          className="button-primary"
+          onClick={() => {
+            setFollowToggle(!followToggle);
+            followUsers(data._id);
+          }}
+        >
+          {followToggle ? "unFollow" : "Follow"}
+        </button>
       </div>
 
       <div className="my-profile-info-container">

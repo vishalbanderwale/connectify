@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { useContext } from "react";
+
 import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { userContext } from "./UserContext";
 
 export const authContext = createContext();
 
@@ -15,7 +14,8 @@ function AuthProvider({ children }) {
   const [loginData, setloginData] = useState({ username: "", password: "" });
 
   const [mainUser, setmainUser] = useState({});
-  console.log(mainUser);
+
+  // console.log(mainUser);
 
   const handleGuest = () => {
     const defaultData = {
@@ -123,6 +123,7 @@ function AuthProvider({ children }) {
         mainUser,
         setmainUser,
         handleGuest,
+        setloginData,
       }}
     >
       {children}

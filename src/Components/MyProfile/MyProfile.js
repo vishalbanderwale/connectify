@@ -1,42 +1,55 @@
 import { Link } from "react-router-dom";
 import "./MyProfile.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { authContext } from "../../context/AuthContext";
 import { userContext } from "../../context/UserContext";
 import { EditProfile } from "../EditProfile/EditProfile";
 function MyProfile() {
-  const { loginData } = useContext(authContext);
-  const { username } = loginData;
-  const { users } = useContext(userContext);
-  const [editProfile, setEditProfile] = useState(false);
+  // const { loginData } = useContext(authContext);
+  // const { username } = loginData;
+  const { editProfileHandler, editProfile, setEditProfile } =
+    useContext(userContext);
 
-  function editProfileHandler() {
-    setEditProfile(!editProfile);
-  }
+  const { mainUser } = useContext(authContext);
+  console.log(mainUser);
 
-  const filterProfile = users?.filter((f) => f?.username === username);
+  // const  = users?.filter((f) => f?.username === username);
 
   return (
     <div className="my-profile-main-container">
       <div className="my-profile-details-container">
         <img
-          src={filterProfile[0]?.avatarUrl}
+          src={mainUser?.avatarUrl}
           alt="my-profile-img"
           className="my-profile-img"
         />
         <h3>
-          {filterProfile[0]?.firstName} {filterProfile[0]?.lastName}
+          {mainUser?.firstName} {mainUser?.lastName}
         </h3>
-        <p>@{username}</p>
+        <p>@{mainUser?.username}</p>
         <button className="button-primary" onClick={editProfileHandler}>
           edit
         </button>
       </div>
-      {editProfile && <EditProfile />}
+
+      {editProfile && (
+        <div
+          onClick={() => setEditProfile(false)}
+          className="editprofile_modal_outer_div"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="editprofile_modal_outer_container"
+          >
+            {/* we can do e.stopprogragtion or we can take one empty div  */}
+            <EditProfile />
+          </div>
+        </div>
+      )}
 
       <div className="my-profile-info-container">
-        <p>{filterProfile[0]?.bio}</p>
-        <Link>{filterProfile[0]?.website}</Link>
+        <p>{mainUser?.bio}</p>
+        <Link>{mainUser?.website}</Link>
       </div>
       <div className="my-profile-count-container">
         <div>
